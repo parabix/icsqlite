@@ -53,13 +53,11 @@ int sqlite3Fts5Init(sqlite3*);
 #ifdef SQLITE_ENABLE_JSON1
 int sqlite3Json1Init(sqlite3*);
 #endif
-#ifdef SQLITE_ENABLE_REGEX
-int sqlite3RegexInit(sqlite3*);
-#endif
 #ifdef SQLITE_ENABLE_STMTVTAB
 int sqlite3StmtVtabInit(sqlite3*);
 #endif
-#ifdef TRUE // TODO: add proper flag here
+#ifdef SQLITE_ENABLE_REGEX
+int sqlite3RegexInit(sqlite3*);
 int sqlite3IcgrepInit(sqlite3*);
 #endif
 
@@ -96,17 +94,15 @@ static int (*const sqlite3BuiltinExtensions[])(sqlite3*) = {
 #ifdef SQLITE_ENABLE_JSON1
   sqlite3Json1Init,
 #endif
-#ifdef SQLITE_ENABLE_REGEX
-  sqlite3RegexInit,
-#endif
 #ifdef SQLITE_ENABLE_STMTVTAB
   sqlite3StmtVtabInit,
 #endif
 #ifdef SQLITE_ENABLE_BYTECODE_VTAB
   sqlite3VdbeBytecodeVtabInit,
 #endif
-#ifdef TRUE // TODO: add proper flag here
-sqlite3IcgrepInit,
+#ifdef SQLITE_ENABLE_REGEX
+  sqlite3RegexInit,
+  sqlite3IcgrepInit,
 #endif
 };
 
