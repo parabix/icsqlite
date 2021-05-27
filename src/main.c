@@ -59,6 +59,9 @@ int sqlite3RegexInit(sqlite3*);
 #ifdef SQLITE_ENABLE_STMTVTAB
 int sqlite3StmtVtabInit(sqlite3*);
 #endif
+#ifdef TRUE // TODO: add proper flag here
+int sqlite3IcgrepInit(sqlite3*);
+#endif
 
 /*
 ** An array of pointers to extension initializer functions for
@@ -101,6 +104,9 @@ static int (*const sqlite3BuiltinExtensions[])(sqlite3*) = {
 #endif
 #ifdef SQLITE_ENABLE_BYTECODE_VTAB
   sqlite3VdbeBytecodeVtabInit,
+#endif
+#ifdef TRUE // TODO: add proper flag here
+sqlite3IcgrepInit,
 #endif
 };
 
