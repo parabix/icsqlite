@@ -58,7 +58,6 @@ int sqlite3StmtVtabInit(sqlite3*);
 #endif
 #ifdef SQLITE_ENABLE_REGEX
 int sqlite3RegexInit(sqlite3*);
-int sqlite3IcgrepInit(sqlite3*);
 #endif
 
 /*
@@ -102,7 +101,6 @@ static int (*const sqlite3BuiltinExtensions[])(sqlite3*) = {
 #endif
 #ifdef SQLITE_ENABLE_REGEX
   sqlite3RegexInit,
-  sqlite3IcgrepInit,
 #endif
 };
 
